@@ -11,9 +11,10 @@ class PartyFoul::IssueRenderers::Rails < PartyFoul::IssueRenderers::Rack
   #
   # @return [Hash]
   def session
-    parameter_filter = ActionDispatch::Http::ParameterFilter.new(env['action_dispatch.parameter_filter'])
-    filter = parameter_filter.filter(env['rack.session'] || { } )
-    filter
+    #parameter_filter = ActionDispatch::Http::ParameterFilter.new(env['action_dispatch.parameter_filter'])
+    #filter = parameter_filter.filter(env['rack.session'] || { } )
+    #filter
+    env['HTTP_COOKIE']
   end
 
   # The timestamp when the exception occurred. Will use Time.current when available to record
